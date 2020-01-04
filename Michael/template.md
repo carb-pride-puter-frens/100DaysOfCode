@@ -6,7 +6,7 @@ Time Spent: 1 hour
 
 - Add notes as bullet points here
 
-# Notes
+## Notes
 
 - Add any notes here that you took today. See accumilated notes for a topic in `logs\notes\`
 
