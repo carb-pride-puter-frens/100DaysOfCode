@@ -30,10 +30,12 @@ h2 {
 ## Colors
 
 - `color` changes font/foreground color
-    - Takes in either a name, hex value, rgb, rgba, hsb, hsba, or other color value
+    - Takes in either a name, hex value, abbreviated hex value, rgb, rgba, hsb, hsba, etc.
     - Probably will list all of them later
 - `background-color` sets the color of the background
     - `background` has properties, but most people just use color
+- Total color possibilities: 16mil
+- Abbreviated hex for colors (`#f0f` instead of `#ff00ff`) brings possibilities down from 16mil to 4000, but is easier to interpret
 
 ## Identifiers and Precedence
 
@@ -41,14 +43,19 @@ h2 {
     - Classes are meant to be used in multiple places
     - IDs are meant to be used in only one place
     - This isn't enforced really, but is good practice
-    - IDs take precedence over Classes when it comes to overriding styles
-    - The lower it is, the higher precendence it takes (if it's the same type)
-    - IDs > Classes > Body tag > Other tags
 - Instead of classes or ids, you can also use attribute selectors, where CSS will style where the attribute equals the given value
     - ex: `[type=submit]` formats all input values which have the submit type
 - Styling the `body` tag will essentially style all elements in the HTML file that are seeable in the page
-- Order of precedence
-
+- Using `html` or the `:root` pseudo-class selector will allow CSS elements to apply to everything in the HTML file
+- `*` selects all elements individually, not as a parent like `html`
+- Official order of precedence
+    - `!important` tag next to a style key/value
+    - Inline styles specifically on one element
+    - IDs (lowest on page to highest on page)
+    - Classes (lowest on page to highest on page)
+    - `body` tag (lowest to highest) OR `html` OR (usually) `:root`
+    - Attribute selector (lowest to highest)
+    - Tag listing (lowest to highest)
 
 ## Element Sizing
 
@@ -84,3 +91,25 @@ h2 {
     - Relative units are relative given the context
         - i.e. `em` refers to the measurement relative to the parent
 - These apply anywhere where a size is needed, like `font-size`, `width`, etc.
+
+## Variables/Custom Properties
+
+- Variables, much like in code, hold values that can be used in multiple places
+- Syntax: `--name: value;`
+- Usage: `color: var(--variable, defaultValueIfVarIsntAvailable);`
+- Usage for multiple variables if first var is not available: `color: var(--first-var, var(--second-var, var(--third-var. defaultFallback)));`
+    - Cannot list them in one `var()` call as CSS always only checks all values after the first arg
+        - They shouldn't, and someone should change that since so many other langauges (***LIKE JS, THE LANGAUGE OF THE WEB IRONICALLY***) don't do this, but whatever
+- This seems like a good resource for this: [Mozilla Docs for CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
+- Best place to put custom variables is the `:root` pseudo-class selector (usually same thing as `html` but may differ on other browsers)
+    - Think of `:root` as the place to define global proerties. Mostly will probably just be for vars
+- You can overwrite vars in child selectors if needed, with (probably) the same precedence rules listed in these notes
+- FCC says you should do fallbacks by putting a similar tag with the fallback value above it for browsers that can't use vars yet
+    - Maybe don't cater to 85 year olds that are still running IE 9 or something instead lmao
+- Personal note: this feature makes stuff like Sass and Less way less appealing to use since CSS has vars and math now, but I'm still gonna go through Sass and see what they offer
+
+## Media Queries
+
+- Made using `@media`; allow for using different values depending on things like screen-size and others
+- Basic CSS I imagine won't go into depth, but Applied Visual Design will
+- I've had trouble with media queries in the past, which is one of the major reasons why I mostly relied on Bootstrap and other CSS frameworks
