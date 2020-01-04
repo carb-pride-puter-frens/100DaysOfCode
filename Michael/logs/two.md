@@ -7,13 +7,13 @@ Time Spent: 1 hour
 - Added template file to make logging easier
 - Added a notes folder under logs to throw notes into
 
-# FreeCodeCamp - CSS
+## FreeCodeCamp - CSS
 
 - Did the following lessons:
     - Start: Change the color of text
     - End: Override All Other Stypes by using Important
 
-# Notes Taken Today - CSS
+## Notes Taken Today - CSS
 
 - `color` changes font/foreground color
     - Takes in either a name, hex value, rgb, rgba, hsb, hsba, or other color value
@@ -75,7 +75,7 @@ h2 {
         - i.e. `em` refers to the measurement relative to the parent
 - Styling the `body` tag will essentially style all elements in the HTML file that are seeable in the page
 
-## Personal Notes (if any)
+## Personal Notes
 
 - I definitely recognized a lot of the stuff so far in the Basic CSS portion
 - I took way too many notes about it, but maybe that would be for the best
