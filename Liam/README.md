@@ -18,6 +18,7 @@ Any project files I make will be stored in this repo as well for everyone else t
 - Web dev
   - PHP
   - Javascript
+- Arduino
   
 ## Possible projects
 - Egg simulator game
