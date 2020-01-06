@@ -13,6 +13,7 @@ Any project files I make will be stored in this repo as well for everyone else t
 - C++
 - Unity
 - NoSQL
+- Python
 
 ## Stuff I have used but would like to learn more about
 - Web dev
@@ -23,3 +24,5 @@ Any project files I make will be stored in this repo as well for everyone else t
 ## Possible projects
 - Egg simulator game
   - complex soft-body physics and rigid-body shatter algorithms to work on/with
+- Z80 Microcomputer
+- 68k Microcomputer
