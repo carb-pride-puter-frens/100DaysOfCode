@@ -46,9 +46,7 @@ rename(join(LOGS_FOLDER_PATH, 'template.md'), newFilePath)
 with open(newFilePath, 'r') as fromFile:
     line = fromFile.readline();
     line = line.replace('N', str(latestFileNumber))
-    print(line)
     line = line.replace('(Current Date)', datetime.datetime.now().strftime('%x'))
-    print(line)
 
     with open(newFilePath, 'w') as toFile:
         toFile.write(line)
