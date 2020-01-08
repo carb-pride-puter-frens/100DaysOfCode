@@ -105,7 +105,7 @@ h2 {
     - Attribute selector (lowest to highest)
     - Tag listing (lowest to highest)
 
-## Element Sizing
+## Element Sizing and Transformations
 
 - `width` determines how wide an element is
     - Uses same semantics as `font-size`, anything that eventually means a number is allowed
@@ -116,6 +116,12 @@ h2 {
     - When editing in the same element like `border`, the order goes TRBL (Clockwise Notation). If only two elements are given, then its (TB)(RL)
         - i.e. `margin: 10px 20px 10px 20px;` makes the top margin 10px, right margin 20px, bottom margin 10px, and left margin 20px
         - i.e. `margin: 10px 20px;` is the equivalent of above. The first value makes the top and bottom margin 10px and the left and right margin 20px
+- `transform` is a property that transforms an element depending on certain functions which are available
+    - `scale(n)` scales an element to it's current size times `n` (< 0 - 0.99, 1.01 < x) (pretty much not negative, 0, or 1 unless needed)
+        - The semantics of this are pretty similar to `em` it seems, except, probably, in a different way
+    - `skewX(ndeg)` skews an element `n` degrees (-359 - 359) on the X axis (yes, in 3D, so the ends skew towards the 3D X axis)
+    - `skewY(ndeg)` is the same as `skewX()`, but on the Y axis
+    - `rotate(ndeg)` rotates an element so many degrees
 
 ## Borders and Box Shadows
 
@@ -197,3 +203,30 @@ h2 {
     - `float` removes a block from the normal flow and pushes it to the given direction, `left` or `right`
 - `z-index` defines the order of layers, so that with two elements, the one with the higher integer value moves to the foreground
 - Many ways to center horizontally, especially when we get to grid and flexbox. Another way is to set `margin` to `auto`
+
+## Animations
+
+- `@keyframes` is a rule that allows for CSS to follow instructions on creating animations
+    - It forms as a block of blocks which run given a certain percentage it's through an animation
+        - ex: different values at the start (0%), middle (50%), or end (100%)
+    - It has a name, and it's selected by an element via said name
+- `animation` determines which `@keyframes` rule runs on the element it's in
+    - `animation-name` is the name of the `@keyframes` block you wanna refer to
+    - `animation-duration` is the amount of time you want the animation to run from 0% to 100%
+    - `animation-fill-mode` determines which style to carry once the animation is done
+        - `forwards` takes whatever is in 100%
+    - `animation-iteration-count` says how many times to run the animation (a number or `infinite`)
+    - `animation-timing-function` controls how quickly an animated event changes over the duration of it
+        - Default value is `ease`, which starts slow, then speeds up, then slows down towards the end
+        - `ease-in` starts slow then speeds up
+        - `ease-out` starts out then slows down
+        - `linear` keeps it at the same speed throughout
+- `cubic-bezier()` helps give finer control to animations by giving anchor points which live on a Bezier curve
+    - Lives on a 1 x 1 coordinate system
+        - X axis determines the duration and the Y axis is the change in animation
+    - 4 args, p0, p1, p2, and p3
+        - p0 and p3 is the duration of the changes in p1 and p2
+            - p0 and p3 are set automatically and do not need to be changed unless there is some emergency dire need
+        - The p1 and p2 anchor points are determined by a X and Y value
+    - Actual function arguments: (p1x, p1y, p2x, p2y)
+    - So, the usage of this allows you to change time `animation-timing-function` by determining a custom function essentially, so you could speed up or slow down at a different point
