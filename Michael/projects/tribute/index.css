@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --dark-color: #011627;
+    --dark-color-hover: #022644;
+    --light-color: #fdfffc;
+    --yellow-color: #ff9f1c;
+    --blue-color: #0060e3;
+}
+
+body {
+    background-color: var(--light-color);
+}
+
+nav {
+    background-color: var(--dark-color, darkblue);
+    padding: 10px;
+    height: 20px;
+}
+
+nav a {
+    color: var(--light-color, white);
+    text-decoration: none;
+    padding: 10px;
+}
+
+nav a:hover {
+    background-color: var(--dark-color-hover, blue);
+    color: var(--light-color, white);
+    text-decoration: none;
+    padding: 10px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
